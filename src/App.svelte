@@ -1,6 +1,7 @@
 <div class="container">
 	<Navbar />
 	<Main />
+	<Icon />
 </div>
 
 <style>
@@ -40,12 +41,15 @@
 		margin-right: 7px;
 }
 
+:global(.navbar--icon) {
+	transform: scale(2);
+	opacity: 0.5;
+}
+
 :global(main) {
+		position: relative;
 		padding: 57px 27px;
     color: white;
-    background-image: url(./images/react-icon-large.png);
-    background-repeat: no-repeat;
-    background-position: right 75%;
 }
 
 :global(.main--title) {
@@ -69,9 +73,33 @@
     color: #e25036;
 }
 
+:global(.icon--overlay) {
+	position: absolute;
+	position: fixed;
+	top: 30%;
+	left: 85%;
+}
+
+:global(.svelte--icon) {
+	width: 300px;
+}
+
+
+@media (max-width: 768px) {
+  :global(.icon--overlay) {
+    top: 30%; 
+    left: 75%; 
+  }
+
+  :global(.svelte--icon) {
+    width: 300px; 
+  }
+}
+
 </style>
 
 <script>
+	import Navbar from './Navbar.svelte';
 	import Main from './Main.svelte';
- 	import Navbar from './Navbar.svelte';
+	import Icon from './Icon.svelte';
 </script>
